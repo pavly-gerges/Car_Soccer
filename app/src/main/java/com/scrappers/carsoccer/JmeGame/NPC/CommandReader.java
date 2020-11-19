@@ -36,7 +36,7 @@ public  class CommandReader implements ValueEventListener {
         DataSnapshot nPCNode=snapshot.child("Rooms").
                 child(GameStructure.getRoomID()).
                 child("players").
-                child(GameStructure.getPlayer());
+                child(GameStructure.getNPC());
 
         String command=String.valueOf(
                 nPCNode.
