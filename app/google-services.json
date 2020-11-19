@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "680563850394",
+    "firebase_url": "https://soccer-car-bfb23.firebaseio.com",
+    "project_id": "soccer-car-bfb23",
+    "storage_bucket": "soccer-car-bfb23.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:680563850394:android:7543cbcc292bf382b63323",
+        "android_client_info": {
+          "package_name": "com.scrappers.carsoccer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "680563850394-j0iemkrq2goqrjikj3a3rff3pej7k308.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.scrappers.carsoccer",
+            "certificate_hash": "abb49218c69799d85192344a766d92c7dbdca693"
+          }
+        },
+        {
+          "client_id": "680563850394-h6meds6lhqank9uaq0s7kfnk5ugiir22.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCdtkIg858T0ty62wLT_6sgDlHCdReQjKQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "680563850394-h6meds6lhqank9uaq0s7kfnk5ugiir22.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
