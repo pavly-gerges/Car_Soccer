@@ -83,5 +83,26 @@ public class GameNodes {
             }
         });
     }
+    public void setMeOut(){
+        parentNode.child("Rooms").child(GameStructure.getRoomID()).child("players").child(GameStructure.getPlayer()).child("isOut").setValue(true);
+    }
+    public void checkForFinish(){
+        parentNode.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                boolean isMeOut=Boolean.parseBoolean(String.valueOf(snapshot.child("Rooms").child(GameStructure.getRoomID()).child("players").child(GameStructure.getPlayer()).child("isOut").getValue()));
+                boolean isNPCOut=Boolean.parseBoolean(String.valueOf(snapshot.child("Rooms").child(GameStructure.getRoomID()).child("players").child(GameStructure.getNPC()).child("isOut").getValue()));
+                if(isMeOut && isNPCOut){
+                    JmeHarness.jmeHarness.finish();
+                    parentNode.removeEventListener(this);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
 
 }

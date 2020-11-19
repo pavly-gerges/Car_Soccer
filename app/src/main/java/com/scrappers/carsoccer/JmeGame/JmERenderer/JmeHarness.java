@@ -4,6 +4,7 @@ import android.content.res.AssetManager;
 import android.os.Bundle;
 
 import com.jme3.app.AndroidHarness;
+import com.scrappers.carsoccer.JmeGame.GameNodes;
 import com.scrappers.carsoccer.JmeGame.SceneRenderer.BallRenderer;
 import com.scrappers.carsoccer.JmeGame.SceneRenderer.SceneRenderer;
 import com.scrappers.carsoccer.JmeGame.SceneSelectorStage.SceneSelectorStage;
@@ -78,5 +79,9 @@ public class JmeHarness extends AndroidHarness {
         JmeGame.gameContext.getStateManager().detach(JmeGame.gameContext.getStateManager().getState(SceneSelectorStage.class));
         /*stop the game */
         JmeGame.gameContext.stop();
+
+        GameNodes gameNodes=new GameNodes();
+        gameNodes.checkForFinish();
+        gameNodes.setMeOut();
     }
 }
