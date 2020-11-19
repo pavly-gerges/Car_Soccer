@@ -87,7 +87,10 @@ public class Controller extends GameStickView {
                     JmeGame.gameContext.getStateManager().detach(sceneSelectorStage);
                     gamePadView.removeAllViewsInLayout();
                     GameStructure.setSelectedPlayGround(sceneSelectorStage.getRenderedPlayGround());
-                    JmeGame.gameContext.getStateManager().attach(new SceneRenderer());
+                    SceneRenderer sceneRenderer=new SceneRenderer();
+                    if(!JmeGame.gameContext.getStateManager().hasState(sceneRenderer)){
+                        JmeGame.gameContext.getStateManager().attach(sceneRenderer);
+                    }
                     });
 
             }, null);

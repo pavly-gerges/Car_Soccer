@@ -15,8 +15,9 @@ public class JmeGame extends SimpleApplication {
         stateManager.attach(gamePhysics);
         gamePhysics.setDebugEnabled(false);
         VehicleSelectorStage vehicleSelectorStage =new VehicleSelectorStage(rootNode,new String[]{"ladaCar.j3o"});
-
-        stateManager.attach(vehicleSelectorStage);
+        if(!stateManager.hasState(vehicleSelectorStage)){
+            stateManager.attach(vehicleSelectorStage);
+        }
 
     }
 

@@ -31,7 +31,10 @@ public class SceneRenderer extends BaseAppState {
         nPC =new VehicleBuilder(app);
         nPC.buildPlayer().initializeNPC();
         /* add ball */
-        app.getStateManager().attach(new BallRenderer());
+        BallRenderer ballRenderer=new BallRenderer();
+        if(!app.getStateManager().hasState(ballRenderer)){
+            app.getStateManager().attach(ballRenderer);
+        }
 
     }
 

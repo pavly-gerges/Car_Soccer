@@ -10,14 +10,14 @@
         android:screenOrientation="landscape"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".GameClient.Lobby"
+        <activity android:name=".GameMenus.GameLobby.Lobby"
             android:screenOrientation="landscape"/>
         <activity
-            android:name=".GameClient.GameClient"
+            android:name=".GameMenus.GameClient.GameClient"
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".GameClient.SignIn"
+            android:name=".GameMenus.SignIn"
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>

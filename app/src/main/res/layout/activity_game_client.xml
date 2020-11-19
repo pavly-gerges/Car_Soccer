@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@mipmap/soccertex"
-    tools:context=".GameClient.GameClient">
+    tools:context=".GameMenus.GameClient.GameClient">
 
 
     <LinearLayout

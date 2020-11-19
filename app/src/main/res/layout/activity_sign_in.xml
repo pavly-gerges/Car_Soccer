@@ -12,7 +12,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@mipmap/soccertex"
-    tools:context=".GameClient.SignIn"
+    tools:context=".GameMenus.SignIn.SignIn"
     android:paddingStart="180dp"
     android:paddingEnd="180dp">
     <ImageView

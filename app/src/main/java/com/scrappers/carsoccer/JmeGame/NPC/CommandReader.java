@@ -6,7 +6,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.jme3.bullet.control.VehicleControl;
+import com.jme3.math.Vector3f;
 import com.scrappers.carsoccer.JmeGame.GameStructure;
+import com.scrappers.carsoccer.JmeGame.Player.CommandWriter;
 
 import androidx.annotation.NonNull;
 
@@ -31,9 +33,16 @@ public  class CommandReader implements ValueEventListener {
 
     @Override
     public void onDataChange(@NonNull DataSnapshot snapshot) {
-        String command=String.valueOf(snapshot.child("Rooms").child(GameStructure.getRoomID()).child("players").child(GameStructure.getNPC()).child("command").getValue());
+        DataSnapshot nPCNode=snapshot.child("Rooms").
+                child(GameStructure.getRoomID()).
+                child("players").
+                child(GameStructure.getPlayer());
 
-        Object pulse = snapshot.child("Rooms").child(GameStructure.getRoomID()).child("players").child(GameStructure.getNPC()).child("pulse").getValue();
+        String command=String.valueOf(
+                nPCNode.
+                child("command").getValue());
+
+        Object pulse = nPCNode.child("pulse").getValue();
 
             switch (command){
                 case "accelerate":
@@ -49,16 +58,6 @@ public  class CommandReader implements ValueEventListener {
                     vehicleControl.accelerate(Float.parseFloat(String.valueOf(pulse)));
                     vehicleControl.brake(brakeForce/2);
                     break;
-                case "nitro":
-//                    System.err.println(String.valueOf(snapshot.child("room").child("player " + 0).child("pulse").child("x").getValue()));
-//                    float x=Float.parseFloat(String.valueOf(snapshot.child("room").child("player " + 0).child("pulse").child("x").getValue()));
-//                    float y=Float.parseFloat(String.valueOf(snapshot.child("room").child("player " + 0).child("pulse").child("y").getValue()));
-//                    float z=Float.parseFloat(String.valueOf(snapshot.child("room").child("player " + 0).child("pulse").child("z").getValue()));
-//                    vehicleControl.applyCentralImpulse(new Vector3f(x,
-//                    y,
-//                            z));
-                    break;
-
                 default:
                     vehicleControl.accelerate(0);
                     vehicleControl.clearForces();
@@ -67,11 +66,29 @@ public  class CommandReader implements ValueEventListener {
                     break;
             }
 
+        readExtraCommand(nPCNode,"nitro");
+        readExtraCommand(nPCNode,"jump");
+
     }
 
     @Override
     public void onCancelled(@NonNull DatabaseError error) {
 
+    }
+
+    private void readExtraCommand(DataSnapshot nPCNode,String command){
+        DataSnapshot extraCommandNode=nPCNode.child(command);
+        try {
+            float x = Float.parseFloat(String.valueOf(extraCommandNode.child("x").getValue()));
+            float y = Float.parseFloat(String.valueOf(extraCommandNode.child("y").getValue()));
+            float z = Float.parseFloat(String.valueOf(extraCommandNode.child("z").getValue()));
+            vehicleControl.applyCentralImpulse(new Vector3f(x, y, z));
+        }catch (NumberFormatException | NullPointerException e){
+            e.printStackTrace();
+        }
+        /* remove the command to stop doing the jump/nitro */
+        CommandWriter commandWriter=new CommandWriter().editDataNodes();
+        commandWriter.writeExtraCommand(command,new Vector3f(0f,0f,0f));
     }
 
 

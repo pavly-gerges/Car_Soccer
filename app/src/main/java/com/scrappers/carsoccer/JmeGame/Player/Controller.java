@@ -6,9 +6,13 @@ import android.graphics.Color;
 
 import com.jme3.app.SimpleApplication;
 import com.jme3.bullet.control.VehicleControl;
+import com.jme3.math.ColorRGBA;
 import com.jme3.math.FastMath;
 import com.jme3.math.Vector3f;
+import com.jme3.scene.Node;
 import com.jme3.scene.Spatial;
+import com.scrappers.carsoccer.JmeGame.InGameEffects.NitroState;
+import com.scrappers.carsoccer.JmeGame.JmERenderer.JmeGame;
 import com.scrappers.carsoccer.JmeGame.JmERenderer.JmeHarness;
 import com.scrappers.jmeGamePad.GamePadView;
 import com.scrappers.jmeGamePad.GameStickView;
@@ -28,8 +32,6 @@ public class Controller extends GameStickView {
         this.jmeContext=jmeContext;
         commandWriter=new CommandWriter();
         commandWriter.initializeFireBase();
-
-
     }
 
     public void setVehicleControl(VehicleControl vehicleControl) {
@@ -114,17 +116,16 @@ public class Controller extends GameStickView {
             /* initialize pad buttons & listeners A,B,X,Y */
             gamePadView.addControlButton("BUTTON A",GamePadView.GAMEPAD_BUTTON_A ,GamePadView.TRIS_BUTTONS,GamePadView.NOTHING_IMAGE, view -> {
 //
-//                getVehicleControl().applyCentralImpulse(jumpForce);
-//                commandWriter.writeCommand(GameStructure.getRoomID(),GameStructure.getPlayer(),"jump",jumpForce);
+                getVehicleControl().applyCentralImpulse(jumpForce);
+                commandWriter.writeExtraCommand("jump",jumpForce);
 
             },null);
             gamePadView.addControlButton("Nitro",GamePadView.GAMEPAD_BUTTON_B , GamePadView.TRIS_BUTTONS,GamePadView.NOTHING_IMAGE, view -> {
                 getVehicleControl().applyCentralImpulse(getVehicleControl().getLinearVelocity().mult(150));
+                commandWriter.writeExtraCommand("nitro",getVehicleControl().getLinearVelocity().mult(150));
 
-//                Node nitroNode=((Node)((Node) chassis).getChild("nitro"));
-//                JmeGame.gameContext.getStateManager().attach(new NitroState(JmeGame.gameContext.getAssetManager(),nitroNode, Vector3f.UNIT_Z.negate(),"nitroEffect", ColorRGBA.Cyan,ColorRGBA.Blue));
-//
-//                commandWriter.writeCommand(GameStructure.getRoomID(),GameStructure.getPlayer(),"nitro",getVehicleControl().getLinearVelocity().mult(150));
+                Node nitroNode=((Node)((Node) chassis).getChild("nitro"));
+                JmeGame.gameContext.getStateManager().attach(new NitroState(JmeGame.gameContext.getAssetManager(),nitroNode, Vector3f.UNIT_Z.negate(),"nitroEffect", ColorRGBA.Cyan,ColorRGBA.Blue));
 
             },null);
             gamePadView.addControlButton("BUTTON X",GamePadView.GAMEPAD_BUTTON_X , GamePadView.TRIS_BUTTONS,GamePadView.NOTHING_IMAGE, view -> getVehicleControl().brake(brakeForce),null);

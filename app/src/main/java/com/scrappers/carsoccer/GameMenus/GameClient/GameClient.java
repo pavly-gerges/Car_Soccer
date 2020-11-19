@@ -1,13 +1,16 @@
-package com.scrappers.carsoccer.GameClient;
+package com.scrappers.carsoccer.GameMenus.GameClient;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.widget.EditText;
 
-import com.scrappers.carsoccer.GameClient.Rooms.FireBaseReader;
-import com.scrappers.carsoccer.GameClient.Rooms.RoomsAdapter;
-import com.scrappers.carsoccer.JmeGame.GameNodes;
+import com.scrappers.carsoccer.GameMenus.GameLobby.Lobby;
+import com.scrappers.carsoccer.GameMenus.OptionPane;
+import com.scrappers.carsoccer.GameMenus.GameClient.Rooms.FireBaseReader;
+import com.scrappers.carsoccer.GameMenus.GameClient.Rooms.RoomsAdapter;
+import com.scrappers.carsoccer.GameMenus.SystemVisibilityUI;
+import com.scrappers.carsoccer.JmeGame.GameDataNodes;
 import com.scrappers.carsoccer.JmeGame.GameStructure;
 import com.scrappers.carsoccer.R;
 
@@ -23,7 +26,7 @@ public class GameClient extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_client);
-
+        new SystemVisibilityUI(this).setGameMode();
         findViewById(R.id.addNewRoom).setOnClickListener(listener ->{
             OptionPane optionPane=new OptionPane(GameClient.this);
             optionPane.showDialog(R.layout.dialog_new_room, Gravity.CENTER);
@@ -36,12 +39,10 @@ public class GameClient extends AppCompatActivity {
                 GameStructure.setAdmin(true);
                 GameStructure.setNPC("player2");
                 /* write a command to create the room */
-                GameNodes gameNodes=new GameNodes();
-                gameNodes.addNewRoom();
-                gameNodes.addPlayer();
-                gameNodes.addNPC();
+                GameDataNodes gameDataNodes =new GameDataNodes();
+                gameDataNodes.addPlayer();
+                gameDataNodes.addNPC();
                 startActivity(new Intent(GameClient.this, Lobby.class));
-
             });
 
         });
@@ -51,9 +52,14 @@ public class GameClient extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         RoomsAdapter roomsAdapter=new RoomsAdapter(this,new ArrayList<>());
         recyclerView.setAdapter(roomsAdapter);
-        FireBaseReader fireBaseReader=new FireBaseReader(recyclerView,roomsAdapter);
+        FireBaseReader fireBaseReader=new FireBaseReader(roomsAdapter);
         fireBaseReader.initializeFireBase();
     }
 
-
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        if(hasFocus){
+            new SystemVisibilityUI(this).setGameMode();
+        }
+    }
 }

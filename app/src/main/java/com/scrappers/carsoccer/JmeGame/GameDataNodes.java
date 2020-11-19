@@ -13,9 +13,9 @@ import com.scrappers.carsoccer.JmeGame.Player.CommandWriter;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class GameNodes {
+public class GameDataNodes {
     private final DatabaseReference parentNode;
-    public GameNodes(){
+    public GameDataNodes(){
         parentNode= FirebaseDatabase.getInstance().getReference();
     }
     public void createAccount(String name,String password){
@@ -43,7 +43,10 @@ public class GameNodes {
     public void removeRoom(){
         parentNode.child("Rooms").child(GameStructure.getRoomID()).removeValue();
         GameStructure.setRoomID("");
-
+    }
+    public void removeRoomById(String roomID){
+        parentNode.child("Rooms").child(roomID).removeValue();
+        GameStructure.setRoomID("");
     }
     public void addNPC(){
         parentNode.addValueEventListener(new ValueEventListener() {

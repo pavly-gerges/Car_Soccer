@@ -89,7 +89,10 @@ public class Controller extends GameStickView {
                     JmeGame.gameContext.getRootNode().detachAllChildren();
                     gamePadView.removeAllViewsInLayout();
                     //to scene selector stage
-                    JmeGame.gameContext.getStateManager().attach(new SceneSelectorStage(JmeGame.gameContext.getRootNode(),new String[]{"SoccerPlayGround.j3o","VehicleSelectorStage.j3o"}));
+                    SceneSelectorStage sceneSelectorStage=new SceneSelectorStage(JmeGame.gameContext.getRootNode(),new String[]{"SoccerPlayGround.j3o","VehicleSelectorStage.j3o"});
+                    if(!JmeGame.gameContext.getStateManager().hasState(sceneSelectorStage)){
+                        JmeGame.gameContext.getStateManager().attach(sceneSelectorStage);
+                    }
                     GameStructure.setSelectedCar(vehicleSelectorStage.getAvailableSpaceShips()[spaceShipIndex]);
 
                 });

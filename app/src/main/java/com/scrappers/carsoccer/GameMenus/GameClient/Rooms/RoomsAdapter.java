@@ -1,19 +1,13 @@
-package com.scrappers.carsoccer.GameClient.Rooms;
+package com.scrappers.carsoccer.GameMenus.GameClient.Rooms;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-import com.scrappers.carsoccer.GameClient.Lobby;
-import com.scrappers.carsoccer.JmeGame.GameNodes;
+import com.scrappers.carsoccer.GameMenus.GameLobby.Lobby;
+import com.scrappers.carsoccer.JmeGame.GameDataNodes;
 import com.scrappers.carsoccer.JmeGame.GameStructure;
-import com.scrappers.carsoccer.JmeGame.Player.CommandWriter;
 import com.scrappers.carsoccer.R;
 
 import java.util.ArrayList;
@@ -52,9 +46,9 @@ public class RoomsAdapter extends RecyclerView.Adapter<ViewHolder> {
             GameStructure.setAdmin(false);
             GameStructure.setNPC("player1");
 
-            GameNodes gameNodes=new GameNodes();
-            gameNodes.addPlayer();
-            gameNodes.addNPC();
+            GameDataNodes gameDataNodes =new GameDataNodes();
+            gameDataNodes.addPlayer();
+            gameDataNodes.addNPC();
 
             appCompatActivity.startActivity(new Intent(appCompatActivity, Lobby.class));
         });

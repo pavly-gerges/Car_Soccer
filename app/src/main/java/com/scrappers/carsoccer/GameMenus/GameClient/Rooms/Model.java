@@ -1,4 +1,4 @@
-package com.scrappers.carsoccer.GameClient.Rooms;
+package com.scrappers.carsoccer.GameMenus.GameClient.Rooms;
 
 public class Model {
     private String roomID;

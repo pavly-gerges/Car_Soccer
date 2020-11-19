@@ -62,7 +62,27 @@ public class LocalDataBase {
             System.err.println(ex.getMessage());
         }
     }
-
+    public void setUser(String user){
+        try(BufferedReader fis=new BufferedReader(new FileReader(new File(context.getFilesDir()+file)))){
+             new JSONArray(fis.readLine()).getJSONObject(0).put("name",user);
+        }catch (IOException | JSONException | NullPointerException ex){
+            ex.printStackTrace();
+        }
+    }
+    public void setPassword(String password){
+        try(BufferedReader fis=new BufferedReader(new FileReader(new File(context.getFilesDir()+file)))){
+            new JSONArray(fis.readLine()).getJSONObject(1).put("myPassword",password);
+        }catch (IOException | JSONException | NullPointerException ex){
+            ex.printStackTrace();
+        }
+    }
+    public void setRememberMe(boolean isRememberMe){
+        try(BufferedReader fis=new BufferedReader(new FileReader(new File(context.getFilesDir()+file)))){
+            new JSONArray(fis.readLine()).getJSONObject(2).put("isRememberMe",isRememberMe);
+        }catch (IOException | JSONException | NullPointerException ex){
+            ex.printStackTrace();
+        }
+    }
     /**
      * reads the data fetched from the local file & parse it to a JSONArray
      * @param jsonObjectIndex the index of the JsonObject inside the JsonArray that you wanna access

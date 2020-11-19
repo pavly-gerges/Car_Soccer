@@ -4,7 +4,7 @@ import android.content.res.AssetManager;
 import android.os.Bundle;
 
 import com.jme3.app.AndroidHarness;
-import com.scrappers.carsoccer.JmeGame.GameNodes;
+import com.scrappers.carsoccer.JmeGame.GameDataNodes;
 import com.scrappers.carsoccer.JmeGame.SceneRenderer.BallRenderer;
 import com.scrappers.carsoccer.JmeGame.SceneRenderer.SceneRenderer;
 import com.scrappers.carsoccer.JmeGame.SceneSelectorStage.SceneSelectorStage;
@@ -42,7 +42,7 @@ public class JmeHarness extends AndroidHarness {
 //        mouseEventsEnabled = true;
 
         // Set application exit settings
-        finishOnAppStop = true;
+        finishOnAppStop = false;
         handleExitHook = false;
         exitDialogTitle = "Do you want to exit?";
         exitDialogMessage = "Use your home key to bring this app into the background or exit to terminate it.";
@@ -73,15 +73,17 @@ public class JmeHarness extends AndroidHarness {
     @Override
     public void onBackPressed() {
         /*remove app states */
+        JmeGame.gameContext.getStateManager().detach(JmeGame.gamePhysics);
         JmeGame.gameContext.getStateManager().detach(JmeGame.gameContext.getStateManager().getState(SceneRenderer.class));
         JmeGame.gameContext.getStateManager().detach(JmeGame.gameContext.getStateManager().getState(BallRenderer.class));
         JmeGame.gameContext.getStateManager().detach(JmeGame.gameContext.getStateManager().getState(VehicleSelectorStage.class));
         JmeGame.gameContext.getStateManager().detach(JmeGame.gameContext.getStateManager().getState(SceneSelectorStage.class));
-        /*stop the game */
-        JmeGame.gameContext.stop();
 
-        GameNodes gameNodes=new GameNodes();
-        gameNodes.checkForFinish();
-        gameNodes.setMeOut();
+        /*stop the game */
+
+        GameDataNodes gameDataNodes =new GameDataNodes();
+        gameDataNodes.checkForFinish();
+        gameDataNodes.setMeOut();
+        finish();
     }
 }

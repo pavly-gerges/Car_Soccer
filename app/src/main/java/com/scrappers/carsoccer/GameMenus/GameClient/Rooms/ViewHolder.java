@@ -1,4 +1,4 @@
-package com.scrappers.carsoccer.GameClient.Rooms;
+package com.scrappers.carsoccer.GameMenus.GameClient.Rooms;
 
 import android.view.View;
 import android.widget.Button;
