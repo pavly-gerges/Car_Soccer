@@ -73,6 +73,7 @@ public class GameNodes {
                 boolean isNPCReady=Boolean.parseBoolean(String.valueOf(snapshot.child("Rooms").child(GameStructure.getRoomID()).child("players").child(GameStructure.getNPC()).child("isReady").getValue()));
                 if(isMeReady && isNPCReady){
                     appCompatActivity.startActivity(new Intent(appCompatActivity, JmeHarness.class));
+                    parentNode.removeEventListener(this);
                 }
             }
 
