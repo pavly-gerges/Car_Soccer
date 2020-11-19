@@ -19,7 +19,7 @@
     <EditText
         android:id="@+id/roomID"
         android:layout_width="match_parent"
-        android:padding="50dp"
+        android:padding="10dp"
         android:layout_height="60dp"
         android:background="@drawable/text_container"
         android:layout_marginStart="40dp"
