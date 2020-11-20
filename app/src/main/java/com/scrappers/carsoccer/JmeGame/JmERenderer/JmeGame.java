@@ -10,6 +10,7 @@ public class JmeGame extends SimpleApplication {
     public static BulletAppState gamePhysics;
     @Override
     public void simpleInitApp() {
+
         gameContext=this;
         gamePhysics=new BulletAppState();
         stateManager.attach(gamePhysics);

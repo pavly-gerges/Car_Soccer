@@ -11,6 +11,7 @@ import com.jme3.math.FastMath;
 import com.jme3.math.Vector3f;
 import com.jme3.scene.Node;
 import com.jme3.scene.Spatial;
+import com.scrappers.carsoccer.JmeGame.InGameEffects.DoughNutState;
 import com.scrappers.carsoccer.JmeGame.InGameEffects.NitroState;
 import com.scrappers.carsoccer.JmeGame.JmERenderer.JmeGame;
 import com.scrappers.carsoccer.JmeGame.JmERenderer.JmeHarness;
@@ -128,7 +129,15 @@ public class Controller extends GameStickView {
                 JmeGame.gameContext.getStateManager().attach(new NitroState(JmeGame.gameContext.getAssetManager(),nitroNode, Vector3f.UNIT_Z.negate(),"nitroEffect", ColorRGBA.Cyan,ColorRGBA.Blue));
 
             },null);
-            gamePadView.addControlButton("BUTTON X",GamePadView.GAMEPAD_BUTTON_X , GamePadView.TRIS_BUTTONS,GamePadView.NOTHING_IMAGE, view -> getVehicleControl().brake(brakeForce),null);
+            gamePadView.addControlButton("BUTTON X",GamePadView.GAMEPAD_BUTTON_X , GamePadView.TRIS_BUTTONS,GamePadView.NOTHING_IMAGE, view -> {
+                getVehicleControl().brake(brakeForce);
+                Node wheel1= (Node) ((Node) JmeGame.gameContext.getRootNode().getChild("vehicleNode")).getChild("wheel 4 node");
+                Node wheel2= (Node) ((Node) JmeGame.gameContext.getRootNode().getChild("vehicleNode")).getChild("wheel 3 node");
+//                if(!getVehicleControl().getLinearVelocity().equals(Vector3f.ZERO)){
+//                    JmeGame.gameContext.getStateManager().attach(new DoughNutState(JmeGame.gameContext.getAssetManager(), wheel1,wheel2, Vector3f.UNIT_Z.negate(), "doughNut", ColorRGBA.Gray, ColorRGBA.LightGray));
+//                }
+
+            },null);
             gamePadView.addControlButton("BUTTON Y",GamePadView.GAMEPAD_BUTTON_Y , GamePadView.TRIS_BUTTONS,GamePadView.NOTHING_IMAGE, view -> getVehicleControl().brake(brakeForce),null);
 
         });

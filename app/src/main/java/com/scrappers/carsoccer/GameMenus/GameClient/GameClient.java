@@ -44,10 +44,7 @@ public class GameClient extends AppCompatActivity {
                 gameDataNodes.addNPC();
                 startActivity(new Intent(GameClient.this, Lobby.class));
             });
-
         });
-
-
         RecyclerView recyclerView=findViewById(R.id.roomsList);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         RoomsAdapter roomsAdapter=new RoomsAdapter(this,new ArrayList<>());

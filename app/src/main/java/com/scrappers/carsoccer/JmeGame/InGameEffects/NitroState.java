@@ -9,7 +9,12 @@ import com.jme3.light.DirectionalLight;
 import com.jme3.material.Material;
 import com.jme3.math.ColorRGBA;
 import com.jme3.math.Vector3f;
+import com.jme3.post.FilterPostProcessor;
+import com.jme3.post.filters.CartoonEdgeFilter;
+import com.jme3.post.filters.FogFilter;
+import com.jme3.renderer.queue.RenderQueue;
 import com.jme3.scene.Node;
+import com.jme3.terrain.geomipmap.TerrainQuad;
 
 public class NitroState extends BaseAppState {
     private final AssetManager assetManager;
@@ -30,6 +35,7 @@ public class NitroState extends BaseAppState {
     }
     private ParticleEmitter advancedEffects(){
         ParticleEmitter nitroEffect = new ParticleEmitter(effectName, ParticleMesh.Type.Triangle, 20000);
+        nitroEffect.setParticlesPerSec(500f);
         Material fireMat = new Material(assetManager, "Common/MatDefs/Misc/Particle.j3md");
         fireMat.setTexture("Texture", assetManager.loadTexture("Textures/Fire.png"));
         nitroEffect.setMaterial(fireMat);
@@ -53,7 +59,6 @@ public class NitroState extends BaseAppState {
 
     @Override
     protected void initialize(Application app) {
-
         nitroNode.attachChild(advancedEffects());
     }
 
