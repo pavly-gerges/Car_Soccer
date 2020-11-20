@@ -45,7 +45,7 @@ public class SceneSelectorStage extends BaseAppState {
 
 
         Material soccerPlayGround = new Material(assetManager, "Common/MatDefs/Misc/Unshaded.j3md");
-        soccerPlayGround.setTexture("ColorMap", assetManager.loadTexture("soccer.jpg"));
+        soccerPlayGround.setTexture("ColorMap", assetManager.loadTexture("Textures/soccer.jpg"));
         renderedPlayGround = assetManager.loadModel(availablePlaygrounds[index]);
         renderedPlayGround.setMaterial(soccerPlayGround);
         renderedPlayGround.setLocalTranslation(0f, -10f, 0f);

@@ -18,7 +18,7 @@ public class BallRenderer extends BaseAppState {
         Geometry sphereGeometry = new Geometry("Sphere", sphere);
 
         Material material = new Material(app.getAssetManager(), "Common/MatDefs/Misc/Unshaded.j3md");
-        material.setTexture("ColorMap", app.getAssetManager().loadTexture("soccertex.jpg"));
+        material.setTexture("ColorMap", app.getAssetManager().loadTexture("Textures/soccertex.jpg"));
         sphereGeometry.setMaterial(material);
         sphereGeometry.setLocalTranslation(0f, -5f, 0f);
         RigidBodyControl ballControl=new RigidBodyControl(new SphereCollisionShape(5f), 0.5f);

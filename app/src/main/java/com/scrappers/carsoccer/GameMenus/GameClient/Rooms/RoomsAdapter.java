@@ -1,6 +1,5 @@
 package com.scrappers.carsoccer.GameMenus.GameClient.Rooms;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -30,7 +29,6 @@ public class RoomsAdapter extends RecyclerView.Adapter<ViewHolder> {
         this.modelLinkedList = modelLinkedList;
     }
 
-    @SuppressLint("InflateParams")
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -40,6 +38,7 @@ public class RoomsAdapter extends RecyclerView.Adapter<ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.room.setText(modelLinkedList.get(position).getRoomID());
+        holder.numOfPlayers.setText(String.valueOf(modelLinkedList.get(position).getPlayersNum()));
         holder.room.setOnClickListener(view -> {
             GameStructure.setRoomID(holder.room.getText().toString());
             GameStructure.setPlayer("player2");

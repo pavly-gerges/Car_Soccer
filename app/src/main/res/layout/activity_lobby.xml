@@ -34,6 +34,17 @@
             android:textAlignment="center"
 
             />
+        <TextView
+            android:id="@+id/playerReady"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ready"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            android:layout_margin="5dp"
+            android:textAlignment="center"
+            android:padding="10dp"
+            />
     </LinearLayout>
 
     <LinearLayout
@@ -64,12 +75,15 @@
             android:textAlignment="center"
             />
         <TextView
+            android:id="@+id/NPCReady"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Ready"
             android:textColor="@color/white"
+            android:layout_margin="5dp"
             android:textSize="15sp"
             android:textAlignment="center"
+            android:padding="10dp"
             />
     </LinearLayout>
 

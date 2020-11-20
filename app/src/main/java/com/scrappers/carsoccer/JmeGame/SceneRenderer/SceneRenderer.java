@@ -67,7 +67,7 @@ public class SceneRenderer extends BaseAppState {
     }
 
     private void addSky() {
-        Geometry sky = (Geometry) SkyFactory.createSky(getApplication().getAssetManager(),getApplication().getAssetManager().loadTexture("sky.jpg"), Vector3f.UNIT_XYZ, SkyFactory.EnvMapType.EquirectMap);
+        Geometry sky = (Geometry) SkyFactory.createSky(getApplication().getAssetManager(),getApplication().getAssetManager().loadTexture("Textures/sky.jpg"), Vector3f.UNIT_XYZ, SkyFactory.EnvMapType.EquirectMap);
         sky.getMaterial().getAdditionalRenderState().setDepthFunc(RenderState.TestFunction.LessOrEqual);
         JmeGame.gameContext.getRootNode().attachChild(sky);
     }

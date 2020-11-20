@@ -162,7 +162,7 @@ public class VehicleGarage {
 
             Node node1 = new Node("wheel 1 node");
 //            Geometry wheels1 = new Geometry("wheel 1", wheelMesh);
-            Spatial wheels1=JmeGame.gameContext.getAssetManager().loadModel("tyre1.j3o");
+            Spatial wheels1=JmeGame.gameContext.getAssetManager().loadModel("Models/tyre1.j3o");
             ((Node)wheels1).getChild("Cylinder.001").setMaterial(wheelsMat);
             ((Node)wheels1).getChild("Cylinder.002").setMaterial(wireFrameMat);
             wheels1.setLocalScale(0.35f,0.5f,0.35f);
@@ -172,7 +172,7 @@ public class VehicleGarage {
                     wheelDirection, wheelAxle, restLength, radius, true);
 
             Node node2 = new Node("wheel 2 node");
-            Spatial wheels2=JmeGame.gameContext.getAssetManager().loadModel("tyre1.j3o");
+            Spatial wheels2=JmeGame.gameContext.getAssetManager().loadModel("Models/tyre1.j3o");
             ((Node)wheels2).getChild("Cylinder.001").setMaterial(wheelsMat);
             ((Node)wheels2).getChild("Cylinder.002").setMaterial(wireFrameMat);
             wheels2.setLocalScale(0.35f,0.5f,0.35f);
@@ -183,7 +183,7 @@ public class VehicleGarage {
 
 
             Node node3 = new Node("wheel 3 node");
-            Spatial wheels3=JmeGame.gameContext.getAssetManager().loadModel("tyre1.j3o");
+            Spatial wheels3=JmeGame.gameContext.getAssetManager().loadModel("Models/tyre1.j3o");
             ((Node)wheels3).getChild("Cylinder.001").setMaterial(wheelsMat);
             ((Node)wheels3).getChild("Cylinder.002").setMaterial(wireFrameMat);
             wheels3.setLocalScale(0.35f,0.5f,0.35f);
@@ -193,7 +193,7 @@ public class VehicleGarage {
                     wheelDirection, wheelAxle, restLength, radius, false);
 
             Node node4 = new Node("wheel 4 node");
-            Spatial wheels4=JmeGame.gameContext.getAssetManager().loadModel("tyre1.j3o");
+            Spatial wheels4=JmeGame.gameContext.getAssetManager().loadModel("Models/tyre1.j3o");
             ((Node)wheels4).getChild("Cylinder.001").setMaterial(wheelsMat);
             ((Node)wheels4).getChild("Cylinder.002").setMaterial(wireFrameMat);
             wheels4.setLocalScale(0.35f,0.5f,0.35f);

@@ -46,20 +46,20 @@ public class VehicleSelectorStage extends BaseAppState {
         rootNode.addLight(ambientLight);
 
 
-        rootNode.attachChild(app.getAssetManager().loadModel("VehicleSelectorStage.j3o"));
+        rootNode.attachChild(app.getAssetManager().loadModel("Scenes/VehicleSelectorStage.j3o"));
         vehicle = (Node) rootNode.getChild("Vehicle");
         vehicle.detachAllChildren();
 
         VehicleGarage vehicleGarage =new VehicleGarage(availableSpaceShips[0],app.getAssetManager());
         vehicleGarage.initializeVehicle()
-                     .paintChassisMaterial(new ColorRGBA(0f,1f,3f,1f), "carTex.jpg")
-                     .paintAddOnsMaterial(null, "carTex.jpg")
+                     .paintChassisMaterial(new ColorRGBA(0f,1f,3f,1f), "Textures/carTex.jpg")
+                     .paintAddOnsMaterial(null, "Textures/carTex.jpg")
                      .paintBackLightsMaterial(ColorRGBA.Red,"")
                      .paintFrontLightsMaterial(ColorRGBA.White,"")
                      .paintGlassMaterial(ColorRGBA.BlackNoAlpha,"")
                      .paintMirrorsMaterial(ColorRGBA.White,"")
                      .paintU_TurnsMaterial(ColorRGBA.Yellow,"")
-                     .paintNitroMaterial(ColorRGBA.Blue,"carTex.jpg");
+                     .paintNitroMaterial(ColorRGBA.Blue, "Textures/carTex.jpg");
         Node nitroNode=((Node)((Node) vehicleGarage.getChassis()).getChild("nitro"));
         app.getStateManager().attach(new NitroStateStage(app.getAssetManager(),nitroNode,Vector3f.UNIT_Z.negate().mult(1f),"nitroEffect",ColorRGBA.Cyan,ColorRGBA.Blue));
 
@@ -84,7 +84,7 @@ public class VehicleSelectorStage extends BaseAppState {
         metallicLight.setDirection(rootNode.getChild("stage").getLocalTranslation().negate());
         metallicLight.setColor(ColorRGBA.Blue);
         vehicle.addLight(metallicLight);
-        Geometry sky = (Geometry) SkyFactory.createSky(app.getAssetManager(),app.getAssetManager().loadTexture("sky.jpg"), Vector3f.UNIT_XYZ, SkyFactory.EnvMapType.EquirectMap);
+        Geometry sky = (Geometry) SkyFactory.createSky(app.getAssetManager(),app.getAssetManager().loadTexture("Textures/sky.jpg"), Vector3f.UNIT_XYZ, SkyFactory.EnvMapType.EquirectMap);
         sky.getMaterial().getAdditionalRenderState().setDepthFunc(RenderState.TestFunction.LessOrEqual);
         rootNode.attachChild(sky);
 

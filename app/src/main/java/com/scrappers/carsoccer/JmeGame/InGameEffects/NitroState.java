@@ -31,7 +31,7 @@ public class NitroState extends BaseAppState {
     private ParticleEmitter advancedEffects(){
         ParticleEmitter nitroEffect = new ParticleEmitter(effectName, ParticleMesh.Type.Triangle, 20000);
         Material fireMat = new Material(assetManager, "Common/MatDefs/Misc/Particle.j3md");
-        fireMat.setTexture("Texture", assetManager.loadTexture("Fire.png"));
+        fireMat.setTexture("Texture", assetManager.loadTexture("Textures/Fire.png"));
         nitroEffect.setMaterial(fireMat);
         nitroEffect.getParticleInfluencer().setInitialVelocity(gravity);
         nitroEffect.getParticleInfluencer().setVelocityVariation(0.3f);

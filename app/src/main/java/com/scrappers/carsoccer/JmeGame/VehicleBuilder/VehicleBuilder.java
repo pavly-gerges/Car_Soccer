@@ -33,14 +33,14 @@ public class VehicleBuilder {
 
         VehicleGarage vehicleGarage =new VehicleGarage(GameStructure.getSelectedCar(),getApplication().getAssetManager());
         vehicleGarage.initializeVehicle()
-                .paintChassisMaterial(new ColorRGBA(0f,1f,3f,1f), "carTex.jpg")
-                .paintAddOnsMaterial(null, "carTex.jpg")
+                .paintChassisMaterial(new ColorRGBA(0f,1f,3f,1f), "Textures/carTex.jpg")
+                .paintAddOnsMaterial(null, "Textures/carTex.jpg")
                 .paintBackLightsMaterial(ColorRGBA.Red,"")
                 .paintFrontLightsMaterial(ColorRGBA.White,"")
                 .paintGlassMaterial(ColorRGBA.BlackNoAlpha,"")
                 .paintMirrorsMaterial(ColorRGBA.White,"")
                 .paintU_TurnsMaterial(ColorRGBA.Yellow,"")
-                .paintNitroMaterial(ColorRGBA.Blue,"carTex.jpg");
+                .paintNitroMaterial(ColorRGBA.Blue, "Textures/carTex.jpg");
          vehicleAutoShop=new VehicleGarage.VehicleAutoShop(vehicleGarage.getChassis());
          vehicleAutoShop.initializeChassis()
                         .initializeVehiclePhysics()
