@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.EditText
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatCheckBox
 import com.scrappers.carsoccer.GameMenus.GameClient.GameClient
@@ -30,7 +31,7 @@ class SignIn : AppCompatActivity() {
         }catch (e: NullPointerException){
             e.printStackTrace()
         }
-        val signInBtn=findViewById<ImageView>(R.id.signIn)
+        val signInBtn=findViewById<TextView>(R.id.signIn)
         signInBtn.setOnClickListener {
 
             localDataBase.writeData((findViewById<EditText>(R.id.userName)).text.toString(),

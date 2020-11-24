@@ -71,17 +71,17 @@ public class Controller extends GameStickView {
         /*run the gamePad Attachments & listeners from the android activity UI thread */
         JmeHarness.jmeHarness.runOnUiThread(() -> {
 
-            GamePadView gamePadView = new GamePadView(JmeHarness.jmeHarness, Controller.this);
+            GamePadView gamePadView = new GamePadView(JmeHarness.jmeHarness, this);
             /* Initialize GamePad Parts*/
             gamePadView.initializeGamePad(GamePadView.DEFAULT_GAMEPAD_DOMAIN, GamePadView.ONE_THIRD_SCREEN)
-                    .initializeGameStickHolder(GamePadView.FLIPPED_COLOR_STICK_DOMAIN)
-                    .initializeGameStick(GamePadView.TRIS_BUTTONS, GamePadView.NOTHING_IMAGE, 150);
+                    .initializeGameStickHolder(R.drawable.bigger_circle)
+                    .initializeGameStick(R.drawable.circle, R.color.transparent, 140);
             /*initialize the gameStick track */
             gamePadView.setMotionPathColor(Color.WHITE);
-            gamePadView.setMotionPathStrokeWidth(10);
+            gamePadView.setMotionPathStrokeWidth(7);
             gamePadView.setStickPathEnabled(true);
             /* initialize pad buttons & listeners A,B,X,Y */
-            gamePadView.addControlButton("Go", GamePadView.GAMEPAD_BUTTON_Y, GamePadView.CRYSTAL_QUADS, R.drawable.ic_twotone_play_arrow_24,view -> {
+            gamePadView.addControlButton("Go", GamePadView.GAMEPAD_BUTTON_Y, R.drawable.crystal_buttons, R.drawable.ic_twotone_play_arrow_24,view -> {
                 //start game or move to other game state
                 JmeGame.gameContext.enqueue(() -> {
                     JmeGame.gameContext.getStateManager().detach(sceneSelectorStage);

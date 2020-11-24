@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/lada_car">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="24dp"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/gradient_snack_bar" />
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="36dp"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="120dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/rounded_bottom"
+            android:padding="4dp"
+            android:paddingTop="0dp"
+            android:src="@drawable/abc_vector_test"
+            android:tintMode="src_over" />
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginHorizontal="12dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/crystal_buttons"
+            android:padding="4dp"
+            android:paddingTop="0dp"
+            android:tintMode="src_over" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginHorizontal="92dp"
+            android:layout_marginTop="24dp"
+            android:background="@color/transparent"
+            android:fontFamily="cursive"
+            android:padding="4dp"
+            android:paddingTop="0dp"
+            android:text="@string/app_name"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:tintMode="src_over" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginHorizontal="92dp"
+            android:layout_marginTop="56dp"
+            android:background="@color/transparent"
+            android:fontFamily="cursive"
+            android:padding="4dp"
+            android:paddingTop="0dp"
+            android:text="@string/app_name"
+            android:textColor="@color/white_d"
+            android:tintMode="src_over" />
+
+        <ImageView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="200dp"
+            android:background="@drawable/rounded_bottom"
+            android:padding="4dp"
+            android:src="@drawable/abc_vector_test" />
+
+        <ImageView
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="264dp"
+            android:background="@drawable/rounded_bottom"
+            android:padding="8dp"
+            android:src="@drawable/abc_vector_test" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="24dp"
+            android:layout_alignParentTop="false"
+            android:layout_alignParentBottom="true"
+            android:rotation="180"
+            android:src="@drawable/gradient_snack_bar" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/transparent"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:paddingHorizontal="0dp">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="12dp"
+                android:background="@drawable/rounded_top"
+                android:backgroundTint="@color/transparent"
+                android:backgroundTintMode="multiply"
+                android:paddingHorizontal="16dp"
+                android:text="@string/app_name"
+                android:textColor="@color/white_d"
+                android:gravity="center"
+                android:paddingTop="8dp"
+                android:textSize="14sp"
+                android:fontFamily="serif-monospace"
+                android:textStyle="bold"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="12dp"
+                android:background="@drawable/rounded_top"
+                android:backgroundTint="@color/transparent"
+                android:backgroundTintMode="multiply"
+                android:paddingHorizontal="16dp"
+                android:paddingTop="8dp"
+                android:text="@string/app_name"
+                android:fontFamily="serif-monospace"
+                android:textColor="@color/white_d"
+                android:textSize="14sp"
+                android:textStyle="bold"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="12dp"
+                android:background="@drawable/rounded_top"
+                android:backgroundTint="@color/transparent"
+                android:backgroundTintMode="multiply"
+                android:paddingHorizontal="16dp"
+                android:paddingTop="8dp"
+                android:text="@string/app_name"
+                android:textColor="@color/white_d"
+                android:fontFamily="serif-monospace"
+                android:textSize="14sp"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

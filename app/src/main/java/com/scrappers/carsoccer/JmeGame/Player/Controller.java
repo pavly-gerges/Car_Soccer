@@ -15,6 +15,7 @@ import com.scrappers.carsoccer.JmeGame.InGameEffects.DoughNutState;
 import com.scrappers.carsoccer.JmeGame.InGameEffects.NitroState;
 import com.scrappers.carsoccer.JmeGame.JmERenderer.JmeGame;
 import com.scrappers.carsoccer.JmeGame.JmERenderer.JmeHarness;
+import com.scrappers.carsoccer.R;
 import com.scrappers.jmeGamePad.GamePadView;
 import com.scrappers.jmeGamePad.GameStickView;
 
@@ -107,12 +108,12 @@ public class Controller extends GameStickView {
             /* create a gamePadView instance of cardView/FrameLayout to display gamePad Component */
             GamePadView gamePadView=new GamePadView( JmeHarness.jmeHarness,Controller.this);
             /* Initialize GamePad Parts*/
-            gamePadView.initializeGamePad(GamePadView.DEFAULT_GAMEPAD_DOMAIN,GamePadView.ONE_THIRD_SCREEN)
-                    .initializeGameStickHolder(GamePadView.FLIPPED_COLOR_STICK_DOMAIN)
-                    .initializeGameStick(GamePadView.TRIS_BUTTONS,GamePadView.NOTHING_IMAGE,150);
+            gamePadView.initializeGamePad(GamePadView.DEFAULT_GAMEPAD_DOMAIN, GamePadView.ONE_THIRD_SCREEN)
+                    .initializeGameStickHolder(R.drawable.bigger_circle)
+                    .initializeGameStick(R.drawable.circle,R.color.transparent, 140);
             /*initialize the gameStick track */
             gamePadView.setMotionPathColor(Color.WHITE);
-            gamePadView.setMotionPathStrokeWidth(10);
+            gamePadView.setMotionPathStrokeWidth(7);
             gamePadView.setStickPathEnabled(true);
             /* initialize pad buttons & listeners A,B,X,Y */
             gamePadView.addControlButton("BUTTON A",GamePadView.GAMEPAD_BUTTON_A ,GamePadView.TRIS_BUTTONS,GamePadView.NOTHING_IMAGE, view -> {

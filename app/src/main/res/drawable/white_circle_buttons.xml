@@ -9,7 +9,7 @@
         android:radius="200dp"
         />
     <solid
-        android:color="@color/pureWhite"
+        android:color="@color/white_d"
         />
 
 

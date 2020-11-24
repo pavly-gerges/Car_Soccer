@@ -9,7 +9,7 @@
         android:radius="200dp"
         />
     <solid
-        android:color="@color/fireEngineRed"
+        android:color="@color/teal_700"
         />
 
 
